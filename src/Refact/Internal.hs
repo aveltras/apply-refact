@@ -42,6 +42,7 @@ import Data.Ord (comparing)
 import Data.Tuple.Extra
 import Debug.Trace
 import qualified GHC
+import GHC.Driver.Flags (OnOff(..))
 #if MIN_VERSION_ghc(9,12,0)
 import qualified GHC.Data.Strict as Strict
 #endif
