@@ -888,8 +888,8 @@ parseExtensions = addImplied . foldl' f mempty
     addImplied :: ([Extension], [Extension], [String]) -> ([Extension], [Extension], [String])
     addImplied (ys, ns, is) = (ys ++ impliedOn, ns ++ impliedOff, is)
       where
-        impliedOn = [b | ext <- ys, (a, True, b) <- impliedXFlags, a == ext]
-        impliedOff = [b | ext <- ys, (a, False, b) <- impliedXFlags, a == ext]
+        impliedOn = [b | ext <- ys, (a, On b) <- impliedXFlags, a == ext]
+        impliedOff = [b | ext <- ys, (a, Off b) <- impliedXFlags, a == ext]
 
 readExtension :: String -> Maybe Extension
 readExtension s = flagSpecFlag <$> find ((== s) . flagSpecName) xFlags
